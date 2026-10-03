@@ -18,10 +18,11 @@ docker-compose up -d --build  # Rebuild and start
 
 ### Frontend (in `/frontend`)
 ```bash
-npm run dev      # Start dev server on :5173
-npm run build    # Type check + production build
-npm run lint     # ESLint check
-npm run preview  # Preview production build
+pnpm install --frozen-lockfile  # Install dependencies (pnpm 11.11.0; lockfile is pnpm-lock.yaml)
+pnpm run dev      # Start dev server on :5173
+pnpm run build    # Type check + production build
+pnpm run lint     # ESLint check
+pnpm run preview  # Preview production build
 ```
 
 ### Backend (in `/backend`)
