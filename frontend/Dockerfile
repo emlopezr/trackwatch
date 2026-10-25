@@ -14,6 +14,11 @@ RUN pnpm run build
 
 FROM nginx:alpine
 
+# CI passes a new value per run, so this layer (and apk upgrade) never comes from cache.
+ARG APK_UPGRADE_CACHE_BUST=manual
+# apk upgrade pulls Alpine security fixes between base image updates.
+RUN apk upgrade --no-cache
+
 RUN rm /etc/nginx/conf.d/default.conf
 
 COPY nginx.conf /etc/nginx/templates/default.conf.template
