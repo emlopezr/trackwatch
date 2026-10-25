@@ -199,6 +199,7 @@ jobs:
         with:
           context: ./frontend
           file: ./frontend/Dockerfile
+          build-args: APK_UPGRADE_CACHE_BUST=${{ github.run_id }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
